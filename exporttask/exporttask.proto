@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.export.task";
+option java_outer_classname = "task";
+
+package exporttask;
+
+service TaskServers {
+	rpc CreateTask(TaskInput) returns (TaskOutput) {}
+	rpc DelTask(TaskInput) returns (TaskOutput) {}
+}
+
+message TaskInput {
+	string taskId = 1;
+	string taskName = 2;
+}
+
+message TaskOutput {
+	string worker = 1;
+	string time = 2;
+}
